@@ -1,6 +1,6 @@
 # Non-Cloud OpenTofu helper modules
 
-These modules don't rely on any cloud providers. They're usually very small and as such are not split into several files like {main,variables,output}.tf.
+These modules don't rely on any cloud providers. 
 
 ## Modules
 
