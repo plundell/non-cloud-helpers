@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    tlsname = {
+    tls = {
       source  = "registry.opentofu.org/hashicorp/tls"
       version = ">= 3.0"
     }
