@@ -27,7 +27,8 @@ locals {
 # If we want to delete the temporary file after processing we run a data-block that 
 # removes the file and prints an empty JSON object. By virtue of referencing local.contents
 # this block will run after we have captured the contents.
-data "external" "remove_tempfile" {
-  count   = var.delete_tempfile && local.tempfile != null && length(local.contents) > 0 ? 1 : 0
-  program = ["bash", "-c", "rm -f ${local.tempfile} && echo '{}';"]
-}
+# data "external" "remove_tempfile" {
+#   count      = var.delete_tempfile && local.tempfile != null && length(local.contents) > 0 ? 1 : 0
+#   program    = ["bash", "-c", "rm -f ${local.tempfile} && echo '{}';"]
+#   depends_on = [local.contents]
+# }

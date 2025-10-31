@@ -3,7 +3,7 @@ variables {
 }
 
 run "no_replacements" {
-  command = plan
+  command = apply
 
 
   variables {
@@ -23,8 +23,7 @@ run "no_replacements" {
 }
 
 run "single_pattern_replacement" {
-  command = plan
-
+  command = apply
 
 
   variables {
@@ -49,8 +48,10 @@ run "single_pattern_replacement" {
   }
 }
 
+
+
 run "multiple_replacements" {
-  command = plan
+  command = apply
 
   variables {
     replacements = [
@@ -70,13 +71,13 @@ run "multiple_replacements" {
     error_message = "Second replacement should be applied"
   }
   assert {
-    condition     = output.tempfile == null
+    condition     = output.tempfile != null
     error_message = "Tempfile should exist because we passed 'delete_tempfile=false'"
   }
 }
 
 run "regex_replacement" {
-  command = plan
+  command = apply
 
 
   variables {
