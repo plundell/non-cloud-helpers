@@ -21,7 +21,7 @@ variable "file_map" {
 }
 
 variable "template_variables" {
-  type        = map(string)
+  type        = list(tuple([string, string]))
   description = "Template variables used to inject values into the file before archiving. These are applied to all source files."
   default     = null
 }
